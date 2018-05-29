@@ -1,0 +1,365 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:Microsoft.Search" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="urn:Microsoft.Search" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="urn:Microsoft.Search">
+            <s:element name="Query">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="queryXml" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="QueryResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="QueryResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Registration">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="registrationXml" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="RegistrationResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RegistrationResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Status">
+                <s:complexType />
+            </s:element>
+            <s:element name="StatusResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="StatusResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="Discovery">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="registrationXml" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="DiscoveryResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="DiscoveryResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="string" nillable="true" type="s:string" />
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="QuerySoapIn">
+        <wsdl:part name="parameters" element="tns:Query" />
+    </wsdl:message>
+    <wsdl:message name="QuerySoapOut">
+        <wsdl:part name="parameters" element="tns:QueryResponse" />
+    </wsdl:message>
+    <wsdl:message name="RegistrationSoapIn">
+        <wsdl:part name="parameters" element="tns:Registration" />
+    </wsdl:message>
+    <wsdl:message name="RegistrationSoapOut">
+        <wsdl:part name="parameters" element="tns:RegistrationResponse" />
+    </wsdl:message>
+    <wsdl:message name="StatusSoapIn">
+        <wsdl:part name="parameters" element="tns:Status" />
+    </wsdl:message>
+    <wsdl:message name="StatusSoapOut">
+        <wsdl:part name="parameters" element="tns:StatusResponse" />
+    </wsdl:message>
+    <wsdl:message name="DiscoverySoapIn">
+        <wsdl:part name="parameters" element="tns:Discovery" />
+    </wsdl:message>
+    <wsdl:message name="DiscoverySoapOut">
+        <wsdl:part name="parameters" element="tns:DiscoveryResponse" />
+    </wsdl:message>
+    <wsdl:message name="QueryHttpGetIn">
+        <wsdl:part name="queryXml" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="QueryHttpGetOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:message name="RegistrationHttpGetIn">
+        <wsdl:part name="registrationXml" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="RegistrationHttpGetOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:message name="StatusHttpGetIn" />
+    <wsdl:message name="StatusHttpGetOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:message name="DiscoveryHttpGetIn">
+        <wsdl:part name="registrationXml" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="DiscoveryHttpGetOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:message name="QueryHttpPostIn">
+        <wsdl:part name="queryXml" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="QueryHttpPostOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:message name="RegistrationHttpPostIn">
+        <wsdl:part name="registrationXml" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="RegistrationHttpPostOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:message name="StatusHttpPostIn" />
+    <wsdl:message name="StatusHttpPostOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:message name="DiscoveryHttpPostIn">
+        <wsdl:part name="registrationXml" type="s:string" />
+    </wsdl:message>
+    <wsdl:message name="DiscoveryHttpPostOut">
+        <wsdl:part name="Body" element="tns:string" />
+    </wsdl:message>
+    <wsdl:portType name="ResearchSoap">
+        <wsdl:operation name="Query">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Basic entrypoint for Query</wsdl:documentation>
+            <wsdl:input message="tns:QuerySoapIn" />
+            <wsdl:output message="tns:QuerySoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Registration">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Basic registration entry point</wsdl:documentation>
+            <wsdl:input message="tns:RegistrationSoapIn" />
+            <wsdl:output message="tns:RegistrationSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Status">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Entry point to test if server is alive.  Will return 'ONLINE' or 'OFFLINE'</wsdl:documentation>
+            <wsdl:input message="tns:StatusSoapIn" />
+            <wsdl:output message="tns:StatusSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Discovery">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Entry point for service discovery</wsdl:documentation>
+            <wsdl:input message="tns:DiscoverySoapIn" />
+            <wsdl:output message="tns:DiscoverySoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="ResearchHttpGet">
+        <wsdl:operation name="Query">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Basic entrypoint for Query</wsdl:documentation>
+            <wsdl:input message="tns:QueryHttpGetIn" />
+            <wsdl:output message="tns:QueryHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Registration">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Basic registration entry point</wsdl:documentation>
+            <wsdl:input message="tns:RegistrationHttpGetIn" />
+            <wsdl:output message="tns:RegistrationHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Status">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Entry point to test if server is alive.  Will return 'ONLINE' or 'OFFLINE'</wsdl:documentation>
+            <wsdl:input message="tns:StatusHttpGetIn" />
+            <wsdl:output message="tns:StatusHttpGetOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Discovery">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Entry point for service discovery</wsdl:documentation>
+            <wsdl:input message="tns:DiscoveryHttpGetIn" />
+            <wsdl:output message="tns:DiscoveryHttpGetOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="ResearchHttpPost">
+        <wsdl:operation name="Query">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Basic entrypoint for Query</wsdl:documentation>
+            <wsdl:input message="tns:QueryHttpPostIn" />
+            <wsdl:output message="tns:QueryHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Registration">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Basic registration entry point</wsdl:documentation>
+            <wsdl:input message="tns:RegistrationHttpPostIn" />
+            <wsdl:output message="tns:RegistrationHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Status">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Entry point to test if server is alive.  Will return 'ONLINE' or 'OFFLINE'</wsdl:documentation>
+            <wsdl:input message="tns:StatusHttpPostIn" />
+            <wsdl:output message="tns:StatusHttpPostOut" />
+        </wsdl:operation>
+        <wsdl:operation name="Discovery">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Entry point for service discovery</wsdl:documentation>
+            <wsdl:input message="tns:DiscoveryHttpPostIn" />
+            <wsdl:output message="tns:DiscoveryHttpPostOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ResearchSoap" type="tns:ResearchSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="Query">
+            <soap:operation soapAction="urn:Microsoft.Search/Query" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Registration">
+            <soap:operation soapAction="urn:Microsoft.Search/Registration" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Status">
+            <soap:operation soapAction="urn:Microsoft.Search/Status" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Discovery">
+            <soap:operation soapAction="urn:Microsoft.Search/Discovery" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ResearchSoap12" type="tns:ResearchSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="Query">
+            <soap12:operation soapAction="urn:Microsoft.Search/Query" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Registration">
+            <soap12:operation soapAction="urn:Microsoft.Search/Registration" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Status">
+            <soap12:operation soapAction="urn:Microsoft.Search/Status" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Discovery">
+            <soap12:operation soapAction="urn:Microsoft.Search/Discovery" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ResearchHttpGet" type="tns:ResearchHttpGet">
+        <http:binding verb="GET" />
+        <wsdl:operation name="Query">
+            <http:operation location="/Query" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Registration">
+            <http:operation location="/Registration" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Status">
+            <http:operation location="/Status" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Discovery">
+            <http:operation location="/Discovery" />
+            <wsdl:input>
+                <http:urlEncoded />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ResearchHttpPost" type="tns:ResearchHttpPost">
+        <http:binding verb="POST" />
+        <wsdl:operation name="Query">
+            <http:operation location="/Query" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Registration">
+            <http:operation location="/Registration" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Status">
+            <http:operation location="/Status" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="Discovery">
+            <http:operation location="/Discovery" />
+            <wsdl:input>
+                <mime:content type="application/x-www-form-urlencoded" />
+            </wsdl:input>
+            <wsdl:output>
+                <mime:mimeXml part="Body" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Research">
+        <wsdl:port name="ResearchSoap" binding="tns:ResearchSoap">
+            <soap:address location="https://rr.office.microsoft.com/research/query.asmx" />
+        </wsdl:port>
+        <wsdl:port name="ResearchSoap12" binding="tns:ResearchSoap12">
+            <soap12:address location="https://rr.office.microsoft.com/research/query.asmx" />
+        </wsdl:port>
+        <wsdl:port name="ResearchHttpGet" binding="tns:ResearchHttpGet">
+            <http:address location="https://rr.office.microsoft.com/research/query.asmx" />
+        </wsdl:port>
+        <wsdl:port name="ResearchHttpPost" binding="tns:ResearchHttpPost">
+            <http:address location="https://rr.office.microsoft.com/research/query.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
