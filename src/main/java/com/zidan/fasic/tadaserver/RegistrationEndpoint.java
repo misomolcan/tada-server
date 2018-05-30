@@ -1,35 +1,21 @@
 package com.zidan.fasic.tadaserver;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.web.servlet.support.RequestContext;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
 import search.microsoft.Registration;
 import search.microsoft.RegistrationResponse;
 
-import javax.servlet.ServletContext;
-import javax.xml.bind.Element;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.net.*;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.Enumeration;
 
 @Endpoint
 public class RegistrationEndpoint {
 
 
-    @Autowired
-    ServletContext ctx;
-
-    @Autowired
-    ServletContext servletContext;
 
 
     @PayloadRoot(namespace = "urn:Microsoft.Search", localPart = "Registration")
@@ -63,6 +49,7 @@ public class RegistrationEndpoint {
                 "  </Providers>" +
                 "</ProviderUpdate>";
         response.setRegistrationResult(s);
+
 
         return response;
     }
