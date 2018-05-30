@@ -32,7 +32,7 @@ public class RegistrationEndpoint {
                 "      <Message>All Your Base Are Belong To Us</Message>" +
                 "      <Id>{C37EE888-D74E-47e5-B113-BA613D87F0B2}</Id>" +
                 "      <Name>CLASSIC FASIC</Name>" +
-                "      <QueryPath>http://" + getMyIp() + ":8080/ws/research.wsdl/" + "</QueryPath>" +
+                "      <QueryPath>http://" + getMyIp() + ":8080/ws/research.wsdl" + "</QueryPath>" +
                 "      <RegistrationPath>>http://" + getMyIp() + ":8080/ws/research.wsdl/" + "</RegistrationPath>" +
                 "      <Type>SOAP</Type>" +
                 "      <Services>" +
