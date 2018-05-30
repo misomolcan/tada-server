@@ -1,5 +1,8 @@
 package com.zidan.fasic.tadaserver;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.servlet.support.RequestContext;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -9,14 +12,25 @@ import org.w3c.dom.Document;
 import search.microsoft.Registration;
 import search.microsoft.RegistrationResponse;
 
+import javax.servlet.ServletContext;
 import javax.xml.bind.Element;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.net.*;
+import java.util.Enumeration;
 
 @Endpoint
 public class RegistrationEndpoint {
+
+
+    @Autowired
+    ServletContext ctx;
+
+    @Autowired
+    ServletContext servletContext;
+
 
     @PayloadRoot(namespace = "urn:Microsoft.Search", localPart = "Registration")
     @ResponsePayload
@@ -32,10 +46,8 @@ public class RegistrationEndpoint {
                 "      <Message>All Your Base Are Belong To Us</Message>" +
                 "      <Id>{C37EE888-D74E-47e5-B113-BA613D87F0B2}</Id>" +
                 "      <Name>CLASSIC FASIC</Name>" +
-                "      <QueryPath>http://192.168.20.170:8080/ws/research.wsdl/" +
-                "        Registration</QueryPath>" +
-                "      <RegistrationPath>>http://192.168.20.170:8080/ws/research.wsdl/" +
-                "        Registration</RegistrationPath>" +
+                "      <QueryPath>http://" + getMyIp() + ":8080/ws/research.wsdl/" + "</QueryPath>" +
+                "      <RegistrationPath>>http://" + getMyIp() + ":8080/ws/research.wsdl/" + "</RegistrationPath>" +
                 "      <Type>SOAP</Type>" +
                 "      <Services>" +
                 "        <Service>" +
@@ -55,4 +67,22 @@ public class RegistrationEndpoint {
         return response;
     }
 
+    private String getMyIp() {
+        try {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface intf = en.nextElement();
+                for (InterfaceAddress interfaceAddress : intf.getInterfaceAddresses()) {
+                    if (interfaceAddress != null && interfaceAddress.toString().contains("192.168."))
+                        return interfaceAddress.getAddress().getHostAddress();
+                }
+
+
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Returning default IP address");
+        return "192.168.20.170";
+    }
 }
