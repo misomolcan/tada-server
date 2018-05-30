@@ -1,24 +1,17 @@
 package com.zidan.fasic.tadaserver;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.web.servlet.support.RequestContext;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
 import search.microsoft.Registration;
 import search.microsoft.RegistrationResponse;
 
 import javax.servlet.ServletContext;
-import javax.xml.bind.Element;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import java.net.*;
+import java.net.InterfaceAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.Enumeration;
 
 @Endpoint
@@ -46,7 +39,7 @@ public class RegistrationEndpoint {
                 "      <Message>All Your Base Are Belong To Us</Message>" +
                 "      <Id>{C37EE888-D74E-47e5-B113-BA613D87F0B2}</Id>" +
                 "      <Name>CLASSIC FASIC</Name>" +
-                "      <QueryPath>http://" + getMyIp() + ":8080/ws/research.wsdl/" + "</QueryPath>" +
+                "      <QueryPath>http://" + getMyIp() + ":8080/ws/research.wsdl" + "</QueryPath>" +
                 "      <RegistrationPath>>http://" + getMyIp() + ":8080/ws/research.wsdl/" + "</RegistrationPath>" +
                 "      <Type>SOAP</Type>" +
                 "      <Services>" +
