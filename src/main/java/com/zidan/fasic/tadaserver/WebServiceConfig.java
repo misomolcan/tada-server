@@ -24,7 +24,7 @@ public class WebServiceConfig {
     }
 
     @Bean(name = "research")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema researchSchema) {
+    public DefaultWsdl11Definition defaultWsdl11Definition1(XsdSchema researchSchema) {
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
         definition.setPortTypeName("ResearchPort");
         definition.setTargetNamespace("urn:Microsoft.Search");
@@ -38,6 +38,22 @@ public class WebServiceConfig {
     public XsdSchema researchSchema() {
         return new SimpleXsdSchema(new ClassPathResource("researchService.xsd"));
     }
+
+//    @Bean(name = "students")
+//    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema studentsSchema) {
+//        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+//        definition.setPortTypeName("StudentPort");
+//        definition.setTargetNamespace("http://in28minutes.com/students");
+//        definition.setLocationUri("/ws");
+//        definition.setSchema(studentsSchema);
+//        return definition;
+//    }
+//
+//    @Bean
+//    public XsdSchema studentsSchema() {
+//        return new SimpleXsdSchema(new ClassPathResource("student-details.xsd"));
+//    }
+
 
 }
 
